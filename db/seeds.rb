@@ -19,7 +19,7 @@ e = []
 end
 
 10.times do |index|
-	e << Event.create(start_date: Faker::Time.forward(days: 28), duration: 50, description: Faker::Lorem.sentence(word_count: 10),title: Faker::Book.title, location:"Paris",price: rand(1..1000))
+	e << Event.create(administrator: u.sample,start_date: Faker::Time.forward(days: 28), duration: 50, description: Faker::Lorem.sentence(word_count: 10),title: Faker::Book.title, location:"Paris",price: rand(1..1000))
 	puts "Event : #{Faker::Time.forward(days: 28)}"
 end
 
