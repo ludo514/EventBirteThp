@@ -1,2 +1,40 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+
+	<head>
+	</head>
+
+	<body font-family="Arial">
+			<div class="jumbotron text-center">
+		        <div class="container">
+		          <h1 class="display-3">Gossip Project</h1>
+		          <% if current_user%>
+		          	<h2>Bienvenue <%= current_user.first_name %> !</h2>
+		          <%end%>
+		          <p>Listes des évenement</p>
+		        </div>
+		      </div>
+			<div class = "container mx-auto">
+				<div class="row justify-content-center shadow">
+				<% @event.each do |t| %>
+						 <div class="col-sm-6 pt-2">
+						   <div class="card mx-auto">
+						     <div class="card-body">
+						       <h5 class="card-title"> Auteur : <%= @user.find(t.administrator_id).first_name%></h5>
+						       <p class="card-text">Nom évenement :<%= t.title %></p>
+						       <p class="card-text">Date de l'évenement : <%= t.start_date %></p>
+						       <p class="card-text">Durée : <%= t.duration %> min</p>
+						       <a class="btn btn-primary" href="">Info</a>
+						       <% if compare(t.administrator_id, session[:user_id])%>
+							       	<a class="btn btn-primary" href="">Editer</a>
+							       	<a href="" class="btn btn-danger" data-confirm="êtes vous sur ?" data-method="DELETE">Supprimez</a>
+						       	<%end%>
+						     </div>
+						   </div>
+						</div>
+					<% end %>
+				</div>
+			
+	</body>
+
+</html>

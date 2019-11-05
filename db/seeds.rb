@@ -14,7 +14,7 @@ u = []
 e = []
 
 10.times do |index|
-	u << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence(word_count: 10),email: Faker::Name.first_name + "@yopmail.com", encrypted_password:"ludo")
+	u << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence(word_count: 10),email: Faker::Name.first_name + "@yopmail.com", password:"ludovic")
 	puts "User : #{Faker::Name.first_name}"
 end
 
