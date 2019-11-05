@@ -22,11 +22,9 @@
 						     <div class="card-body">
 						       <h5 class="card-title"> Auteur : <%= @user.find(t.administrator_id).first_name%></h5>
 						       <p class="card-text">Nom évenement :<%= t.title %></p>
-						       <p class="card-text">Date de l'évenement : <%= t.start_date %></p>
-						       <p class="card-text">Durée : <%= t.duration %> min</p>
-						       <a class="btn btn-primary" href="">Info</a>
-						       <% if compare(t.administrator_id, session[:user_id])%>
-							       	<a class="btn btn-primary" href="">Editer</a>
+						       <p class="card-text">Description: <%= t.description %> min</p>
+						       <a class="btn btn-primary" href="<%= event_path(t.id)%>">Info</a>
+						       <% if compare(t.administrator_id, current_user.id)%>
 							       	<a href="" class="btn btn-danger" data-confirm="êtes vous sur ?" data-method="DELETE">Supprimez</a>
 						       	<%end%>
 						     </div>

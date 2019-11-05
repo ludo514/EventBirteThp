@@ -25,18 +25,13 @@
               <a class="nav-link" <%= link_to "Home", root_path %><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" <%= link_to "Team" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" <%= link_to "Contact"%></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Nouvelle Evenement</a>
+              <a class="nav-link" href="<%=new_event_path%>">Nouvelle Evenement</a>
             </li>
           </ul>
           <div class="ml-auto bd-highlight d-flex bd-highlight">
               <% if current_user%>
                     <%= link_to "Mon profil", user_path(current_user.id),class:"btn btn-primary" %>
+                    <div class="pl-3"></div>
                     <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete,class:"btn btn-danger" %>
               <%else%>
                     <%= link_to "Connexion", new_user_session_path,class:"btn btn-primary" %>

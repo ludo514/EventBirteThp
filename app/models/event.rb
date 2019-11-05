@@ -22,13 +22,17 @@ class Event < ApplicationRecord
 	validates :location, presence: true
 
 	def duration_5?
-		errors.add(:duration, "La durée doit être un multiple de 5") unless
-		self.duration % 5 == 0 
+		if self.duration != nil
+			errors.add(:duration, "La durée doit être un multiple de 5") unless
+			self.duration % 5 == 0 
+		end
 	end
 
 	def is_gone?
-		errors.add(:start_date, "La date doit être supérieur")unless 
-		self.start_date > DateTime.now 
+		if self.start_date != nil
+			errors.add(:start_date, "La date doit être supérieur")unless 
+			self.start_date > DateTime.now 
+		end
 	end
 
 end

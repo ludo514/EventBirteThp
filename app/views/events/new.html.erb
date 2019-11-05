@@ -1,0 +1,43 @@
+<%if @event.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <p>Nous n'avons pas réussi à créé l'événement</p>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+      
+          <li style="color:red;"><%=message%></li>
+    <%end%>
+  </ul>
+</div>
+<%end%>
+
+<%= form_for @event do |f|%>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date, autofocus: true, autocomplete: "date", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :duration %>
+    <%= f.text_field :duration, autofocus: true, autocomplete: "durée", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, autofocus: true, autocomplete: "prix", class: "form-control" %>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label :location %>
+      <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+<%end%>
