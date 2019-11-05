@@ -18,14 +18,14 @@
 				<div class="row justify-content-center shadow">
 				<% @event.each do |t| %>
 						 <div class="col-sm-6 pt-2">
-						   <div class="card mx-auto">
+						   <div class="card text-center mx-auto">
+						   	<h5 class="card-header"> Auteur : <%= @user.find(t.administrator_id).first_name%></h5>
 						     <div class="card-body">
-						       <h5 class="card-title"> Auteur : <%= @user.find(t.administrator_id).first_name%></h5>
 						       <p class="card-text">Nom évenement :<%= t.title %></p>
 						       <p class="card-text">Description: <%= t.description %> min</p>
 						       <a class="btn btn-primary" href="<%= event_path(t.id)%>">Info</a>
 						       <% if compare(t.administrator_id, current_user.id)%>
-							       	<a href="" class="btn btn-danger" data-confirm="êtes vous sur ?" data-method="DELETE">Supprimez</a>
+							       	<%=link_to("Supprimez", delete_event_path(t.id), method: :delete, data: { confirm: "Etes vous sure ?"}, class: 'btn btn-danger')%>
 						       	<%end%>
 						     </div>
 						   </div>

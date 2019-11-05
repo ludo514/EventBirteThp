@@ -2,17 +2,24 @@
 <html>
 <head>
 </head>
+    <% if flash[:sucess]%>
+	    <div class="alert alert-success" role="alert">
+	  		Evénement créé
+		</div>
+    <%end%>
 	<body>	
 		<div class="row justify-content-center">
 			<div class="col-sm-6 pt-2">
 				<div class="card">
+					<h5 class="card-header"> Auteur : <%=@event.title%></h5>
 					<div class="card-body">
-						<h5 class="card-title"> Auteur : <%=@event.title%></h5>
 						<p class="card-text">Date : <%=@event.start_date%></p>
 						<p class="card-text">Durée : <%=@event.duration%> min </p>
+						<p class="card-text">Date de fin : <%=@event.start_date + @event.duration * 60%></p>
 						<p class="card-text">Location : <%=@event.location%></p>
-						<p class="card-text">Price : <%=@event.price%></p>
+						<p class="card-text">Price : <%=@event.price%>€</p>
 						<p class="card-text">Description : <%=@event.description%></p>
+						<p class="card-text">Nombre de participant : <%=@attendance.where(user_id: @event.id).count%> </p>
 					</div>
 				</div>
 			</div>

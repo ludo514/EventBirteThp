@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+  	@attendance = Attendance.all
   end
 
   def new
@@ -19,11 +20,17 @@ class EventsController < ApplicationController
 
   	if @event.save
   		flash[:sucess] = "Evenement créé"
-  		redirect_to '/'
+  		redirect_to event_path(@event.id)
   	else
   		flash[:danger] = "Erreur, evenement non créé"
   		render :new
   	end
+  end
+
+  def destroy
+  	@event = Event.find(params[:id])
+    @event.destroy
+    redirect_to root_path
   end
 
 end
