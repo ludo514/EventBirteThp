@@ -24,7 +24,7 @@
 						       <p class="card-text">Nom évenement :<%= t.title %></p>
 						       <p class="card-text">Description: <%= t.description %> min</p>
 						       <a class="btn btn-primary" href="<%= event_path(t.id)%>">Info</a>
-						       <% if compare(t.administrator_id, current_user.id)%>
+						       <% if user_signed_in? && compare(t.administrator_id, current_user.id)%>
 							       	<%=link_to("Supprimez", delete_event_path(t.id), method: :delete, data: { confirm: "Etes vous sure ?"}, class: 'btn btn-danger')%>
 						       	<%end%>
 						     </div>
