@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
-  	@attendance = Attendance.all
+  	@attendances = Attendance.all
   end
 
   def new

@@ -27,6 +27,7 @@ gem 'faker'
 gem 'letter_opener'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'stripe'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

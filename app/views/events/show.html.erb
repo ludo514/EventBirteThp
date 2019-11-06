@@ -19,7 +19,13 @@
 						<p class="card-text">Location : <%=@event.location%></p>
 						<p class="card-text">Price : <%=@event.price%>€</p>
 						<p class="card-text">Description : <%=@event.description%></p>
-						<p class="card-text">Nombre de participant : <%=@attendance.where(user_id: @event.id).count%> </p>
+						<p class="card-text">Nombre de participant : <%=@attendances.where(event_id:@event.id).count%> </p>
+						<% if user_signed_in? && !compare(@event.administrator_id, current_user.id)%>
+						    <a class="btn btn-success" href="<%= new_charge_path(@event.id)%>">Inscription à l'évennement</a>
+						<%end%>
+						<% if user_signed_in? && compare(@event.administrator_id, current_user.id)%>
+						    <a class="btn btn-success" href="<%= new_charge_path(@event.id)%>">Mon espace événement</a>
+						<%end%>
 					</div>
 				</div>
 			</div>
