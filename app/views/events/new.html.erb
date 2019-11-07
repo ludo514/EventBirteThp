@@ -9,40 +9,43 @@
   </ul>
 </div>
 <%end%>
-
-<%= form_for @event do |f|%>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= f.label :title %>
-      <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+<div class="container mt-3 shadow">
+  <%= form_for @event do |f|%>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, autofocus: true, autocomplete: "date", class: "form-control" %>
+      </div>
     </div>
-    <div class="form-group col-md-6">
-      <%= f.label :start_date %>
-      <%= f.text_field :start_date, autofocus: true, autocomplete: "date", class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :duration %>
+      <%= f.text_field :duration, autofocus: true, autocomplete: "durée", class: "form-control" %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :duration %>
-    <%= f.text_field :duration, autofocus: true, autocomplete: "durée", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :price %>
-    <%= f.text_field :price, autofocus: true, autocomplete: "prix", class: "form-control" %>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= f.label :location %>
-      <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control" %>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-        <%= f.file_field :avatar %>
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.text_field :price, autofocus: true, autocomplete: "prix", class: "form-control" %>
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Crée événement</button>
-<%end%>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :location %>
+        <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+          <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="pb-3">
+      <button type="submit" class="btn btn-primary">Crée événement</button>
+    </div>
+  <%end%>
+</div>
