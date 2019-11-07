@@ -6,13 +6,14 @@
 	<body>
 		<div class="row justify-content-center">
 				<div class="card">
-					<div class="justify-content-start">
+					<div >
 						<%if @user.avatar.attached?%>
 							<div class="col-md-4">
 								<%= image_tag @user.avatar, alt: 'avatar', class:"card-img" %>
 							</div>
 						<%end%>
-						<div class="card-body">
+					</div>
+					<div class="card-body">
 						<h5 class="card-title"> Prénom : <%=@user.first_name%></h5>
 						<p class="card-text">Nom : <%=@user.last_name%></p>
 						<p class="card-text">Email : <%=@user.email%></p>
@@ -26,6 +27,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</body>
 </html>
