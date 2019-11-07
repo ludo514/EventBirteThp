@@ -11,7 +11,10 @@
 		<div class="row justify-content-center">
 			<div class="col-sm-6 pt-2">
 				<div class="card">
-					<h5 class="card-header"> Auteur : <%=@event.title%></h5>
+					<h5 class="card-header text-center"><strong><%=@event.title%></strong></h5>
+					<%if @event.avatar.attached?%>
+  						<%= image_tag @event.avatar, alt: 'avatar', class:"card-img-top" %>
+					<%end%>
 					<div class="card-body">
 						<p class="card-text">Date : <%=@event.start_date%></p>
 						<p class="card-text">Durée : <%=@event.duration%> min </p>

@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
 	has_many :attendances
 	has_many :users, through: :attendance
+	has_one_attached :avatar
 	belongs_to :administrator, class_name: "User"
 
 	validates :start_date, presence: true

@@ -39,5 +39,10 @@
       <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <%= f.file_field :avatar %>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Crée événement</button>
 <%end%>

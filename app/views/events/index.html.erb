@@ -20,10 +20,12 @@
 				<% @event.each do |t| %>
 						 <div class="col-sm-6 pt-2">
 						   <div class="card text-center mx-auto">
-						   	<h5 class="card-header"> Auteur : <%= @user.find(t.administrator_id).first_name%></h5>
+						   	<h5 class="card-header"><%= t.title%></h5>
 						     <div class="card-body">
-						       <p class="card-text">Nom évenement :<%= t.title %></p>
-						       <p class="card-text">Description: <%= t.description %> min</p>
+						       <p class="card-text">Description: <%= t.description %></p>
+						       	<p class="card-text"><strong><%= t.price %>€</strong></p>
+						       <p class="card-text text-muted">Date : <%= t.start_date %></p>
+						       <p class="card-text text-muted">Durée de l'événement : <%= t.duration %> min </p>
 						       <a class="btn btn-primary" href="<%= event_path(t.id)%>">Info</a>
 						       <% if user_signed_in? && compare(t.administrator_id, current_user.id)%>
 							       	<%=link_to("Supprimez", delete_event_path(t.id), method: :delete, data: { confirm: "Etes vous sure ?"}, class: 'btn btn-danger')%>
