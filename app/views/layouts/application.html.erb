@@ -27,6 +27,14 @@
             <li class="nav-item">
               <a class="nav-link" href="<%=new_event_path%>">Nouvelle Evenement</a>
             </li>
+            <% if isAdmin? %>
+              <li class="nav-item">
+                 <%= link_to "Admin Utilisateur", admin_users_path , class:'nav-link'%>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Admin Event", admin_events_validateds_path , class:'nav-link'%>
+              </li>
+            <%end%>
           </ul>
           <div class="ml-auto bd-highlight d-flex bd-highlight">
               <% if current_user%>

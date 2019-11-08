@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-  	@event = Event.all
+  	@event = Event.where(validated: true)
   	@user = User.all
   end
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+			<h5 class="text-center">Evénement en attente</h5>
+			<div class="row justify-content-center">
+				<% @event.each do |t|%>
+					<div class="container shadow mt-4">
+							<div class="container">
+								<h5 class="title"><%=t.title%></h5>
+								<p class="text">Administrateur : <%=@user.find(t.administrator_id).first_name%></p>
+								<p class="text">Price : <%=t.price%></p>
+								<p class="text">Description : <%=t.description%></p>
+								<p>Validation : <%=t.validated%></p>
+								<div class="container">
+									<%=link_to "Valider", admin_events_validated_path(t.id, validated: true),method: :patch, class: 'btn btn-success mb-3'%>
+								
+									<%=link_to "Refuser", admin_events_validated_path(t.id, validated: false),method: :patch, class: 'btn btn-danger mb-3'%>
+								</div>
+							</div>
+					</div>
+				<%end%>
+			</div>
+			<h5 class="text-center">Evénement refusé</h5>
+			<div class="row justify-content-center">
+				<% @eventF.each do |t|%>
+					<div class="container shadow mt-4">
+							<div class="container">
+								<h5 class="title"><%=t.title%></h5>
+								<p class="text">Administrateur : <%=@user.find(t.administrator_id).first_name%></p>
+								<p class="text">Price : <%=t.price%></p>
+								<p class="text">Description : <%=t.description%></p>
+								<p>Validation : <%=t.validated%></p>
+								<div class="container">
+									<%=link_to "Valider", admin_events_validated_path(t.id, validated: true),method: :patch, class: 'btn btn-success mb-3'%>
+								</div>
+							</div>
+					</div>
+				<%end%>
+			</div>
+	</body>
+</html>

@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
 	end
 
 	include EventsHelper
+	include ApplicationHelper
 end

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+			<div class="row justify-content-center">
+				<% @user.each do |t|%>
+					<div class="container shadow mt-4">
+							<div>
+								<%if t.avatar.attached?%>
+									<div class="col-md-4">
+										<%= image_tag t.avatar, alt: 'avatar', class:"card-img" %>
+									</div>
+								<%end%>
+							</div>
+							<div class="container">
+								<h5 class="title"> Prénom : <%=t.first_name%></h5>
+								<p class="text">Nom : <%=t.last_name%></p>
+								<p class="text">Email : <%=t.email%></p>
+								<p class="text">Crée à  : <%=t.created_at%></p>
+								<p class="text">Modifier le : <%=t.updated_at%></p>
+								<p class="text">Description : <%=t.description%></p>
+								<%= link_to "Supprimez", admin_user_path(t.id), method: :delete,class:"btn btn-danger mb-3" %>
+							</div>
+					</div>
+				<%end%>
+			</div>
+	</body>
+</html>

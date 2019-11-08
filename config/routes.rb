@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   get 'charges/new/:id', to: 'charges#new', as: 'new_charge'
   delete 'events/:id', to: 'events#destroy', as: 'delete_event'
+  namespace :admin do
+    resources :users, only: [:index, :destroy]
+    resources :events_validateds, only: [:index, :update]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
